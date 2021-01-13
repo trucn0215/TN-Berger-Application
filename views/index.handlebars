@@ -1,22 +1,42 @@
-<h1>BURGER APP!</h1>
+<div class="burger">
+    <h1 class="">Eat Da Burger!!</h1>
+    <img src="../public/assets/img/Burger.png" class="burger-img w3-center" alt="Burger">
 
-<h2>Not Devour!</h2>
-<ul>
-    {{#each burgers}}
-        {{#unless devour}}
-            {{> burgers/burger_block devour = true}}
-        {{/unless}}
-    {{/each}}
-</ul>
+    <h2>What Burger Do you Want?</h2>
+    <form class="burger-input">
+        <div class="submit">
+            <input type="text" name="name">
+            <button>Submit!</button>
+        </div>
+    </form>
 
-<h2>Devour it!</h2>
-<ul>
-    {{#each burgers}}
-        {{#if devour}}
-            {{> burgers/burger_block devour = false}}
-        {{/if}}
-    {{/each}}
-</ul>
+    <div class="burger-list w3-container w3-cell-row">
+        <div class="add-burger w3-container w3-cell">
+            <h2>Burger Ordered</h2>
+            <div>
+                <div>
+                    {{#each burgers}}
+                    {{#unless devour}}
+                    {{> burgers/burger_block devour = true}}
+                    {{/unless}}
+                    {{/each}}
+                    <button>Devour!</button>
+                </div>
+            </div>
+        </div>
 
-<h2>Add a Burger</h2>
-
+        <div class="devoured w3-container w3-cell">
+            <h2>Devoured!!</h2>
+            <div>
+                <div>
+                    {{#each burgers}}
+                    {{#if devour}}
+                    {{> burgers/burger_block devour = false}}
+                    {{/if}}
+                    {{/each}}
+                    <button>Remove!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
