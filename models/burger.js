@@ -11,6 +11,10 @@ const burger = {
 
     updateOne: function(){
 
+    },
+
+    removeOne: function(){
+        
     }
 }
 

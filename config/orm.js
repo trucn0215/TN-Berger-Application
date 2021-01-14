@@ -11,6 +11,9 @@ const orm = {
 
     updateOne: function(){
 
+    },
+    removeOne: function(){
+        
     }
 }
 
