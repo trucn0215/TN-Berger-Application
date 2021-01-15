@@ -20,15 +20,28 @@ const orm = {
         })
     },
 
-    insertOne: function () {
-
+    // TODO: This is not working
+    insertOne: function (table, newBurger, cb) {
+        const queryData = `INSERT INTO ${table} (burger_name) VALUES ("${newBurger}");`;
+        connection.query(queryData, function(err, result){
+            if (err) throw err;
+            console.log(result);
+            cb(result);
+        })
     },
 
+    // Update burger to move to devoured side
     updateOne: function () {
 
     },
-    removeOne: function () {
 
+    // Remove Burger
+    removeOne: function (table, removeBurgerId, cb) {
+        const queryData = `DELETE FROM ${table} WHERE id = ${removeBurgerId};`;
+        connection.query(queryData, function(err, result){
+            if (err) throw err;
+            cb(result);
+        })
     }
 }
 

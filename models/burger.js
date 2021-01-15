@@ -7,8 +7,8 @@ const burger = {
         })
     },
 
-    insertOne: function(cols, vals, cb){
-        orm.insertOne("burgers", cols, vals, function(res){
+    insertOne: function(newBurger, cb){
+        orm.insertOne("burgers", newBurger, function(res){
             cb(res);
         })
     },
@@ -17,8 +17,10 @@ const burger = {
 
     },
 
-    removeOne: function(){
-
+    removeOne: function(removeBurgerId, cb){
+        orm.removeOne("burger", removeBurgerId, function(res){
+            cb(res);
+        })
     }
 }
 

@@ -4,10 +4,10 @@
 
     <h2>What Burger Do you Want?</h2>
     <form class="burger-input">
-        <div class="submit">
-            <input type="text" name="name">
-            <button>Submit!</button>
+        <div class="submit-burger">
+            <input type="text" id="burgerName" name="name">
         </div>
+        <button type="submit">Add Burger!</button>
     </form>
 
     <div class="burger-list w3-container w3-cell-row">
@@ -17,7 +17,9 @@
                 <div>
                     {{#each burger}}
                     {{#unless devoured}}
-                    <li>Burger: {{burger_name}}  <button>Devour!</button></li>
+                    <li>{{this.burger_name}}
+                        <button class="devoured-btn">Devour!</button>
+                    </li>
                     {{/unless}}
                     {{/each}}
                 </div>
@@ -30,7 +32,9 @@
                 <div>
                     {{#each burger}}
                     {{#if devoured}}
-                    <li>Burger: {{burger_name}}  <button>Remove!</button></li>
+                    <li>{{this.burger_name}}
+                        <button class="remove-btn" data-id="{{this.id}}">Remove!</button>
+                    </li>
                     {{/if}}
                     {{/each}}
                 </div>
