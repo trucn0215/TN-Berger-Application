@@ -1,6 +1,6 @@
-{{!-- <div class="burger">
-    <h1 class="">Eat Da Burger!!</h1>
-    <img src="../public/assets/img/Burger.png" class="burger-img w3-center" alt="Burger">
+<div class="burger">
+    <h1 class="title">Eat Da Burger!!</h1>
+    <img src="assets/img/Burger.png" class="burger-img w3-center" alt="Burger">
 
     <h2>What Burger Do you Want?</h2>
     <form class="burger-input">
@@ -15,12 +15,11 @@
             <h2>Burger Ordered</h2>
             <div>
                 <div>
-                    {{#each burgers}}
-                    {{#unless devour}}
-                    {{> burgers/burger_block devour = true}}
+                    {{#each burger}}
+                    {{#unless devoured}}
+                    <li>Burger: {{burger_name}}  <button>Devour!</button></li>
                     {{/unless}}
                     {{/each}}
-                    <button>Devour!</button>
                 </div>
             </div>
         </div>
@@ -29,34 +28,13 @@
             <h2>Devoured!!</h2>
             <div>
                 <div>
-                    {{#each burgers}}
-                    {{#if devour}}
-                    {{> burgers/burger_block devour = false}}
+                    {{#each burger}}
+                    {{#if devoured}}
+                    <li>Burger: {{burger_name}}  <button>Remove!</button></li>
                     {{/if}}
                     {{/each}}
-                    <button>Remove!</button>
                 </div>
             </div>
         </div>
     </div>
-</div> --}}
-
-<h1 class="burger">Eat Da Burger!!</h1>
-
-<h2>Your Burger!</h2>
-<ul>
-        {{#each burger}}
-        {{#unless devoured}}
-        <li>Burger: {{burger_name}}</li>
-        {{/unless}}
-        {{/each}}
-</ul>
-
-<h2>Devoured!</h2>
-<ul>
-        {{#each burger}}
-        {{#if devoured}}
-        <li>Burger: {{burger_name}}</li>
-        {{/if}}
-        {{/each}}
-</ul>
+</div>
