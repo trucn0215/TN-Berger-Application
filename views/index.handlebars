@@ -1,4 +1,4 @@
-<div class="burger">
+{{!-- <div class="burger">
     <h1 class="">Eat Da Burger!!</h1>
     <img src="../public/assets/img/Burger.png" class="burger-img w3-center" alt="Burger">
 
@@ -39,4 +39,24 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+
+<h1 class="burger">Eat Da Burger!!</h1>
+
+<h2>Your Burger!</h2>
+<ul>
+        {{#each burger}}
+        {{#unless devoured}}
+        <li>Burger: {{burger_name}}</li>
+        {{/unless}}
+        {{/each}}
+</ul>
+
+<h2>Devoured!</h2>
+<ul>
+        {{#each burger}}
+        {{#if devoured}}
+        <li>Burger: {{burger_name}}</li>
+        {{/if}}
+        {{/each}}
+</ul>
