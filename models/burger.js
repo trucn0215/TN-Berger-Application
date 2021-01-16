@@ -13,8 +13,10 @@ const burger = {
         })
     },
 
-    updateOne: function () {
-
+    updateOne: function (updateBurgerId, cb) {
+        orm.updateOne("burgers", updateBurgerId, function(res){
+            cb(res);
+        })
     },
 
     removeOne: function (removeBurgerId, cb) {
