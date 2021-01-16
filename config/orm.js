@@ -1,15 +1,5 @@
 const connection = require("../config/connection.js")
 
-function printQuestionMarks(num) {
-    var arr = [];
-
-    for (var i = 0; i < num; i++) {
-        arr.push("?");
-    }
-
-    return arr.toString();
-}
-
 const orm = {
     selectAll: function (tableInput, cb) {
         const queryData = "SELECT * FROM " + tableInput + ";";
@@ -31,8 +21,12 @@ const orm = {
     },
 
     // Update burger to move to devoured side
-    updateOne: function () {
-
+    updateOne: function (table, devouredBurger, updateBurgerId, cb) {
+        const queryData = `UPDATE ${table} SET devoured = ${devouredBurger} WHERE ${updateBurgerId};`;
+        connection.query(queryData,function(err, result){
+            if (err) throw err;
+            cb(result);
+        })
     },
 
     // Remove Burger

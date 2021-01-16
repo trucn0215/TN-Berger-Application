@@ -14,28 +14,30 @@ router.get("/", function (req, res) {
 });
 
 // Create new data from client to database
-router.post("/api/burgers", function(req, res){
+router.post("/api/burgers", function (req, res) {
     burger.insertOne(
         "burger_name",
-        req.body.burger_name, function(result){
-        res.json({ id: result.insertId });
-    })
+        req.body.burger_name, function (result) {
+            res.json({ id: result.insertId });
+        })
 })
 
 // Update devoured
 router.put("/api/burgers/:id", function (req, res) {
-    const updateBurgerId= "id=" + req.params.id;
+    const updateBurgerId = "id=" + req.params.id;
 
-    burger.updateOne({
-        devoured: res.body.devoured
-    }, updateBurgerId, function(result){
-        if(result.affectedRow == 0){
-            return res.status(404).end()
-        }
-        res.status(200).end();
-    })
+    burger.updateOne(
+        {
+            devoured: res.body.devoured
+        }, updateBurgerId, function (result) {
+            if (result.changedRow == 0) {
+                return res.status(404).end()
+            }
+            res.status(200).end();
+        })
 })
 
+// Delete devoured Burger
 router.delete("/api/burgers/:id", function (req, res) {
     const removeBurgerId = "id=" + req.params.id;
 
