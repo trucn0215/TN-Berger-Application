@@ -1,8 +1,8 @@
 $(function () {
     // Add Burger
     $(".burger-form").on("submit", function (event) {
-        event.preventDefalt();
-        event.stopImmediatePropigation();
+        event.preventDefault();
+        // event.stopImmediatePropigation();
         const newBurger = {
             burger_name: $("#burgerName").val().trim()
         };
@@ -20,7 +20,7 @@ $(function () {
 
     // Update Devoured
     $(".devoured-btn").on("click", function(event){
-        event.preventDefalt();
+        event.preventDefault();
 
         const id = $(this).data("id");
         const devoured = 1;
@@ -35,7 +35,7 @@ $(function () {
         }).then(
             function(){
                 console.log("Devoured my Burger")
-                // location.reload();
+                location.reload();
             }
         )
     })
