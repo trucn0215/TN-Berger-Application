@@ -6,7 +6,7 @@ var PORT = process.env.PORT || 8000;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 //Set Hanlebars
 var exphbs = require("express-handlebars");
