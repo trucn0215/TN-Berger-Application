@@ -1,6 +1,6 @@
 $(function () {
     // Add Burger
-    $(".burger-input").on("submit", function (event) {
+    $(".burger-form").on("submit", function (event) {
         event.preventDefalt();
 
         const newBurger = {
