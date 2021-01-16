@@ -18,11 +18,33 @@ $(function () {
         )
     })
 
+    // Update Devoured
+    $(".devoured-btn").on("click", function(event){
+        event.preventDefalt();
+
+        const id = $(this).data("id");
+        const devoured = 1;
+
+        const devouredBurger = {
+            devoured: devoured
+        }
+
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: devouredBurger
+        }).then(
+            function(){
+                console.log("Devoured my Burger")
+                location.reload();
+            }
+        )
+    })
+
     // Delete burger
     $(".remove-btn").on("click", function (event) {
         event.preventDefault();
 
-        var id = $(this).data("id");
+        const id = $(this).data("id");
 
         // Send the DELETE request.
         $.ajax("/api/burgers/" + id, {

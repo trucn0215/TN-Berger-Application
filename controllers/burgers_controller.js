@@ -24,7 +24,16 @@ router.post("/api/burgers", function(req, res){
 
 // Update devoured
 router.put("/api/burgers/:id", function (req, res) {
+    const updateBurgerToDevoured = "id=" + req.params.id;
 
+    burger.updateOne({
+        devoured: res.body.devoured
+    }, updateBurgerToDevoured, function(result){
+        if(result.affectedRow == 0){
+            return res.status(404).end()
+        }
+        res.status(200).end();
+    })
 })
 
 router.delete("/api/burgers/:id", function (req, res) {
