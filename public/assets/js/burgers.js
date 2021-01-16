@@ -2,7 +2,7 @@ $(function () {
     // Add Burger
     $(".burger-form").on("submit", function (event) {
         event.preventDefalt();
-
+        event.stopImmediatePropigation();
         const newBurger = {
             burger_name: $("#burgerName").val().trim()
         };
@@ -35,7 +35,7 @@ $(function () {
         }).then(
             function(){
                 console.log("Devoured my Burger")
-                location.reload();
+                // location.reload();
             }
         )
     })
@@ -53,7 +53,7 @@ $(function () {
             function () {
                 console.log("deleted Burger", id);
                 // Reload the page to get the updated list
-                location.reload();
+                // location.reload();
             }
         );
     });
