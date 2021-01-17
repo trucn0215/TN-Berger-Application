@@ -2,7 +2,7 @@ $(function () {
     // Add Burger
     $(".burger-form").on("submit", function (event) {
         event.preventDefault();
-        // event.stopImmediatePropigation();
+        
         const newBurger = {
             burger_name: $("#burgerName").val().trim()
         };
@@ -57,5 +57,3 @@ $(function () {
         );
     });
 })
-
-// });

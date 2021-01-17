@@ -9,6 +9,7 @@ function printQuestionMarks(num) {
 }
 
 const orm = {
+    // Select all Burgers
     selectAll: function (tableInput, cb) {
         const queryData = "SELECT * FROM " + tableInput + ";";
         connection.query(queryData, function (err, result) {
@@ -18,7 +19,7 @@ const orm = {
         })
     },
 
-    // TODO: This is not working
+    // Add new Burger to database
     insertOne: function (table, col, val, cb) {
         const queryData = "INSERT INTO " + table + " (" + col.toString() + ") " + "VALUES (" + printQuestionMarks(val.length) + ")";
         console.log(queryData);
