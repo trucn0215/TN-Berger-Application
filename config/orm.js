@@ -30,8 +30,8 @@ const orm = {
     },
 
     // Update burger to move to devoured side
-    updateOne: function (table, devouredBurger, updateBurgerId, cb) {
-        const queryData = `UPDATE ${table} SET devoured = ${devouredBurger} WHERE ${updateBurgerId};`;
+    updateOne: function (table, col, updateBurgerId, cb) {
+        const queryData = `UPDATE ${table} SET devoured = 1 WHERE ${updateBurgerId}`;
         connection.query(queryData, function (err, result) {
             if (err) throw err;
             cb(result);

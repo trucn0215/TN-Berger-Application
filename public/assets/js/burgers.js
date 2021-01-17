@@ -23,10 +23,9 @@ $(function () {
         event.preventDefault();
 
         const id = $(this).data("id");
-        const devoured = 1;
 
         const devouredBurger = {
-            devoured: devoured
+            devoured: devoured = 1
         }
 
         $.ajax("/api/burgers/" + id, {
@@ -53,7 +52,7 @@ $(function () {
             function () {
                 console.log("deleted Burger", id);
                 // Reload the page to get the updated list
-                // location.reload();
+                location.reload();
             }
         );
     });

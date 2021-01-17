@@ -29,8 +29,11 @@ router.put("/api/burgers/:id", function (req, res) {
 
     burger.updateOne(
         {
-            devoured: res.body.devoured
+            devoured: req.body.devoured
         }, updateBurgerId, function (result) {
+
+            console.log(updateBurgerId);
+
             if (result.changedRow == 0) {
                 return res.status(404).end()
             }
