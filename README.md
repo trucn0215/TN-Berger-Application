@@ -21,7 +21,7 @@ In this assignment, you'll create a burger logger with MySQL, Node, Express, Han
 * Heroku
 
 ## Link
-* [Deployed Link]()
+* [Deployed Link](https://tn-eat-da-burger.herokuapp.com/)
 * [Repo Link](https://github.com/trucn0215/TN-Berger-Application)
 
 ## Screenshot
